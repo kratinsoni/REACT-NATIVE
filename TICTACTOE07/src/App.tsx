@@ -1,6 +1,5 @@
-
 import React, {useState} from 'react';
-import type {PropsWithChildren} from 'react';
+
 import {
   FlatList,
   Pressable,
@@ -13,24 +12,22 @@ import {
   View,
 } from 'react-native';
 
-
 import Snackbar from 'react-native-snackbar';
 import Icons from './components/Icons';
 
-function App(): React.JSX.Element {
-
+function App(): JSX.Element {
   const [isCross, setIsCross] = useState<boolean>(false);
-  const [gameWinnner, setGameWinner] = useState<string>('');
+  const [gameWinner, setGameWinner] = useState<string>('');
   const [gameState, setGameState] = useState(new Array(9).fill('empty', 0, 9));
-
 
   const reloadGame = () => {
     setIsCross(false);
     setGameWinner('');
     setGameState(new Array(9).fill('empty', 0, 9));
-  }
+  };
 
   const checkIsWinner = () => {
+    //  checking  winner of the game
     if (
       gameState[0] === gameState[1] &&
       gameState[0] === gameState[2] &&
@@ -82,69 +79,70 @@ function App(): React.JSX.Element {
     } else if (!gameState.includes('empty', 0)) {
       setGameWinner('Draw game... ⌛️');
     }
-  }
-
+  };
   const onChangeItem = (itemNumber: number) => {
-    if(gameWinnner){
+    if (gameWinner) {
       return Snackbar.show({
-        text: gameWinnner,
+        text: gameWinner,
         backgroundColor: '#000000',
         textColor: '#FFFFFF',
       });
     }
 
-    if(gameState[itemNumber] === 'empty'){
+    if (gameState[itemNumber] === 'empty') {
       gameState[itemNumber] = isCross ? 'cross' : 'circle';
-      setIsCross(!isCross); 
+      setIsCross(!isCross);
     } else {
       return Snackbar.show({
-        text: 'Postion already filled',
+        text: 'Position is already filled',
         backgroundColor: 'red',
-        textColor: '#FFFFFF',
+        textColor: '#FFF',
       });
     }
 
     checkIsWinner();
+  };
 
-  }
-
-  return <SafeAreaView>
-    <StatusBar/>
-    {
-      gameWinnner ? (
+  return (
+    <SafeAreaView>
+      <StatusBar />
+      {gameWinner ? (
         <View style={[styles.playerInfo, styles.winnerInfo]}>
-          <Text style={styles.winnerTxt}>{gameWinnner}</Text>
+          <Text style={styles.winnerTxt}>{gameWinner}</Text>
         </View>
       ) : (
-        <View style={[styles.playerInfo,
-          isCross ? styles.playerX : styles.playerO
-        ]}>
-          <Text style={styles.gameTurnTxt}>Player {isCross ? 'X' : 'O'}'s Turn</Text>
+        <View
+          style={[
+            styles.playerInfo,
+            isCross ? styles.playerX : styles.playerO,
+          ]}>
+          <Text style={styles.gameTurnTxt}>
+            Player {isCross ? 'X' : 'O'}'s Turn
+          </Text>
         </View>
-      )
-    }
-    {/* Game Grid */}
-
-    <FlatList
-    numColumns={3}
-    data={gameState}
-    style={styles.grid}
-    renderItem={({item, index}) => (
-      <Pressable key={index}
-      style={styles.card}
-      onPress={() => onChangeItem(index)}
-      > 
-      <Icons name={item}/></Pressable>
-    )}
-    />
-    {/* game Action */}
-    <Pressable style={styles.gameBtn}
-    onPress={reloadGame}>
-      <Text style={styles.gameBtnText}>
-        {gameWinnner ? 'Start New Game' : 'Reset Game'}
-      </Text>
-    </Pressable>
-  </SafeAreaView>
+      )}
+      {/* Game Grid */}
+      <FlatList
+        numColumns={3}
+        data={gameState}
+        style={styles.grid}
+        renderItem={({item, index}) => (
+          <Pressable
+            key={index}
+            style={styles.card}
+            onPress={() => onChangeItem(index)}>
+            <Icons name={item} />
+          </Pressable>
+        )}
+      />
+      {/* game action */}
+      <Pressable style={styles.gameBtn} onPress={reloadGame}>
+        <Text style={styles.gameBtnText}>
+          {gameWinner ? 'Start new game' : 'reLoad the game'}
+        </Text>
+      </Pressable>
+    </SafeAreaView>
+  );
 }
 
 const styles = StyleSheet.create({

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "TICTACTOE07.app"
-               BlueprintName = "TICTACTOE07"
-               ReferencedContainer = "container:TICTACTOE07.xcodeproj">
+               BuildableName = "tictactoe07.app"
+               BlueprintName = "tictactoe07"
+               ReferencedContainer = "container:tictactoe07.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "TICTACTOE07Tests.xctest"
-               BlueprintName = "TICTACTOE07Tests"
-               ReferencedContainer = "container:TICTACTOE07.xcodeproj">
+               BuildableName = "tictactoe07Tests.xctest"
+               BlueprintName = "tictactoe07Tests"
+               ReferencedContainer = "container:tictactoe07.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "TICTACTOE07.app"
-            BlueprintName = "TICTACTOE07"
-            ReferencedContainer = "container:TICTACTOE07.xcodeproj">
+            BuildableName = "tictactoe07.app"
+            BlueprintName = "tictactoe07"
+            ReferencedContainer = "container:tictactoe07.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "TICTACTOE07.app"
-            BlueprintName = "TICTACTOE07"
-            ReferencedContainer = "container:TICTACTOE07.xcodeproj">
+            BuildableName = "tictactoe07.app"
+            BlueprintName = "tictactoe07"
+            ReferencedContainer = "container:tictactoe07.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
